@@ -21,6 +21,7 @@ El proyecto cuenta con una base de datos local en sqlite, dado el caso que neces
 ## Instalación
 
 - git clone https://github.com/cristhianbarros/pruebaTecnicaKonecta.git
+- cd ./pruebaTecnicaKonecta/
 - composer install && cp .env-example .env && php artisan key:generate && php artisan migrate --seed && php artisan serve
 
 ## Consultas SQL
