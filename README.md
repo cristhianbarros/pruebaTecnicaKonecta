@@ -23,3 +23,12 @@ El proyecto cuenta con una base de datos local en sqlite, dado el caso que neces
 - git clone https://github.com/cristhianbarros/pruebaTecnicaKonecta.git
 - composer install && cp .env-example .env && php artisan key:generate && php artisan migrate --seed && php artisan serve
 
+## Consultas SQL
+
+-- Producto con Mayor Stock
+SELECT * FROM `products` ORDER BY stock DESC LIMIT 1;
+
+-- Producto con Mayor Ventas
+SELECT p.id, p.nombre, SUM(cantidad) FROM `transactions` t JOIN products p ON t.product_id = p.id GROUP BY p.id ORDER BY 3 DESC LIMIT 1;
+
+

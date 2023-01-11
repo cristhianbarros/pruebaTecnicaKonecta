@@ -46,11 +46,27 @@ class ProductController extends Controller
             'peso' => 'required|integer',
             'categoria' => 'required|min:2|max:255',
             'stock' => 'required|integer',
+        ],
+        [   'nombre.required' => 'El campo Nombre es obligatorio.',
+            'nombre.min' => 'El campo Nombre debe contener por lo menos 2 caracteres.',
+            'nombre.max' => 'El campo Nombre debe contener máximo 255 caracteres.',
+            'referencia.required' => 'El campo Referencia es obligatorio.',
+            'referencia.min' => 'El campo Referencia debe contener por lo menos 2 caracteres.',
+            'referencia.max' => 'El campo Referencia debe contener máximo 255 caracteres.',
+            'precio.required' => 'El campo Precio es obligatorio.',
+            'precio.integer' => 'El campo Precio debe ser Entero.',
+            'peso.required' => 'El campo Peso es obligatorio.',
+            'peso.integer' => 'El campo Peso debe ser Entero.',
+            'categoria.required' => 'El campo Categoría es obligatorio.',
+            'categoria.min' => 'El campo Categoría debe contener por lo menos 2 caracteres.',
+            'categoria.max' => 'El campo Categoría debe contener máximo 255 caracteres.',
+            'stock.required' => 'El campo Stock es obligatorio.',
+            'stock.integer' => 'El campo Stock debe ser Entero.',
         ]);
 
-        Product::create($validated);
+        $product = Product::create($validated);
 
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('status', "El Producto: $product->nombre  Ha Sido Creado Exitosamente !");
     }
 
     /**
@@ -91,6 +107,17 @@ class ProductController extends Controller
             'peso' => 'required|integer',
             'categoria' => 'required|min:2|max:255',
             'stock' => 'required|integer',
+        ],
+        [   'nombre.required' => 'El campo Nombre es obligatorio.',
+            'referencia.required' => 'El campo Referencia es obligatorio.',
+            'referencia.required' => 'El campo Referencia es obligatorio.',
+            'precio.required' => 'El campo Precio es obligatorio.',
+            'precio.integer' => 'El campo Precio debe ser Entero.',
+            'peso.required' => 'El campo Peso es obligatorio.',
+            'peso.integer' => 'El campo Peso debe ser Entero.',
+            'categoria.required' => 'El campo Categoria es obligatorio.',
+            'stock.required' => 'El campo Stock es obligatorio.',
+            'stock.integer' => 'El campo Stock debe ser Entero.',
         ]);
 
         $nombre = $validated['nombre'];

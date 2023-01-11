@@ -30,9 +30,14 @@ class ProductTransactionController extends Controller
      */
     public function store(Request $request, Product $product)
     {
-        $validated = $request->validate([
-            'cantidad' => 'required|integer',
-        ]);
+        $validated = $request->validate(
+            [
+                'cantidad' => 'required|integer',
+            ],
+            [   'cantidad.required' => 'El campo Cantidad es obligatorio.',
+                'cantidad.integer' => 'El campo Cantidad debe ser Entero.'
+            ]
+        );
 
         $cantidad = $validated['cantidad'];
 

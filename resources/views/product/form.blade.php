@@ -41,7 +41,7 @@
             <input type="text" class="form-control" id="peso" name="peso" value="@if(isset($product)){{ $product->peso }}@else{{ old('peso') }}@endif">
         </div>
         <div class="mb-3">
-            <label for="categoria" class="form-label">Categoria</label>
+            <label for="categoria" class="form-label">Categoría</label>
             <input type="text" class="form-control" id="categoria" name="categoria" value="@if(isset($product)){{ $product->categoria }}@else{{ old('categoria') }}@endif">
         </div>
         <div class="mb-3">
